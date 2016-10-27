@@ -1,0 +1,49 @@
+<ng-include src="'/templates/header.html'"></ng-include>
+
+<div class="container product-wrap">
+  <div class="control-wrap clearfix">
+    <div class="search-wrap">
+      <span><span class="search-head">Category: </span><category-options fruits="fruits" filter="selectFilter"></category-options></span>
+      <span><span class="search-head">Name:</span> <input type="text" ng-model="searchFilter" autocomplete="off" name="search" placeholder="Find some fruit..." /></span>
+    </div>
+    <div class="cart-wrap">
+      <a ng-href="/cart"><button type="button" name="checkout" class="btn checkout-btn">Checkout | <span class="total-count">{{ cartTotal }}</span></button></a>
+    </div>
+  </div>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th class="table-head">FRUIT</th>
+        <th class="table-head">INFORMATION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="fruit in fruits | filter: searchFilter | filter: selectFilter">
+        <td class="item-pic"><img ng-src="/images/{{ fruit.img_url }}" alt="{{ fruit.name }}" /></td>
+        <td class="item-info" cellpadding=0 cellspacing=0>
+          <div class="item">
+              <div class="item-head-wrap clearfix">
+                <div class="item-name-wrap">
+                    <h5 class="item-name">{{ fruit.name }}</h5>
+                </div>
+                <div class="item-qty-wrap">
+                  <span>Quantity: <select ng-model="itemQty[fruit.id]" ng-change="updatePrice(fruit.id)"><option value="">--</option><option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]" value="{{ qty }}">{{ qty }}</option></select></span>
+                  <button class="btn checkout-btn" type="button" name="button|{{fruit.id}}" ng-click="addToCart(fruit)">Add To Bag</button>
+                </div>
+              </div>
+              <p class="item-price item"><strong>Price:</strong> {{ fruit.price/100 | currency }}</p>
+              <p class="item-ingredients item"><strong>Vitamins &amp; Minerals:</strong> {{ fruit.minerals }}</p>
+              <p class="item-rating item"><strong>Rating:</strong> {{ fruit.rating }}</p>
+              <p class="item-stock item"><strong>In Stock?:</strong> {{ fruit.in_stock }}</p>
+              <p class="item-stock item">
+                  <strong>Categories:</strong>
+                  <ul class="category-list">
+                    <li ng-repeat="cat in fruit.categories">{{ cat.f1 }}</li>
+                  </ul>
+              </p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

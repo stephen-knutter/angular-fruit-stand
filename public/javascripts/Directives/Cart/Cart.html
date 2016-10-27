@@ -1,0 +1,37 @@
+<!-- <div class="">
+  Items - {{ cartItems }}
+</div> -->
+<div class="cart-wrap">
+  <strong class="total-wrap">
+    <span class="total-text">Total: </span><span class="total-dollars">{{ totalPrice/100 | currency }}</span>
+  </strong>
+</div>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th class="table-head">FRUIT</th>
+      <th class="table-head">INFORMATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="fruit in cartItems track by fruit.id">
+      <td class="item-pic item-pic-small"><img ng-src="/images/{{ fruit.img_url }}" alt="{{ fruit.name }}" /></td>
+      <td class="item-info item-info-checkout" cellpadding=0 cellspacing=0>
+        <div class="item">
+            <div class="item-head-wrap clearfix">
+              <div class="item-name-wrap">
+                  <h5 class="item-name">{{ fruit.name }}</h5>
+              </div>
+              <div class="item-qty-wrap">
+                <span>Quantity: <select ng-model="itemQty[fruit.id]" ng-change="updatePrice(fruit.id)"><option value="">--</option><option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]" value="{{ qty }}">{{ qty }}</option></select></span>
+                <button class="btn delete-btn" type="button" name="button|{{fruit.id}}" ng-click="removeFromCart(fruit)">Delete</button>
+              </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="cart-wrap">
+  <button class="btn checkout-btn" type="button" name="checkout-btn">Checkout</button>
+</div>

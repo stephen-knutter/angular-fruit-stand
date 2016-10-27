@@ -1,0 +1,4 @@
+<select ng-model="selectFilter">
+  <option value="">-- select --</option>
+  <option ng-repeat="fruit in fruits" value="{{ fruit.name }}">{{ fruit.name }}</option>
+</select>
