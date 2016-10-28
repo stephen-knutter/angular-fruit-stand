@@ -24,6 +24,10 @@ angular.module('cartSummary', [])
 
           cart.updateCount();
         }
+
+        $scope.thanks = function() {
+          alert('Thanks for shopping, enjoy your fruit!');
+        }
       }
     }
   });

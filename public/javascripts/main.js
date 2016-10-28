@@ -26,7 +26,7 @@ app.run(['$rootScope', '$state', '$stateParams',
           controller: 'cartCtrl',
           templateUrl: '/templates/cart.html',
           data: {
-            pageTitle: 'Fruit Stand | Cart'
+            pageTitle: 'Cart | Fruit Stand'
           }
         })
 

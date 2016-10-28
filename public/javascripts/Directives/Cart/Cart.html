@@ -1,11 +1,9 @@
-<!-- <div class="">
-  Items - {{ cartItems }}
-</div> -->
 <div class="cart-wrap">
   <strong class="total-wrap">
     <span class="total-text">Total: </span><span class="total-dollars">{{ totalPrice/100 | currency }}</span>
   </strong>
 </div>
+
 <table class="u-full-width">
   <thead>
     <tr>
@@ -32,6 +30,7 @@
     </tr>
   </tbody>
 </table>
+
 <div class="cart-wrap">
-  <button class="btn checkout-btn" type="button" name="checkout-btn">Checkout</button>
+  <button class="btn checkout-btn" type="button" name="checkout-btn" ng-click="thanks()">Checkout</button>
 </div>

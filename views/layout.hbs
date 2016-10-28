@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="vitamin">
   <head>
     <link rel="icon" href="/images/pear.png" />
     <link rel="stylesheet" href="/bower_components/skeleton/css/normalize.css" />
@@ -11,11 +11,11 @@
     <script type="text/javascript" src="/javascripts/Controllers.js"></script>
     <script type="text/javascript" src="/javascripts/Factories.js"></script>
     <script type="text/javascript" src="/javascripts/Directives/Categories/Categories.js"></script>
-    <script type="text/javascript" src="/javascripts/Directives/Cart/Cart.js"></script>
+    <script type="text/javascript" src="/javascripts/Directives/Cart/cart.js"></script>
 
     <title ng-bind="$state.current.data.pageTitle"></title>
   </head>
-  <body ng-app="vitamin">
+  <body>
     <ui-view></ui-view>
   </body>
 </html>
